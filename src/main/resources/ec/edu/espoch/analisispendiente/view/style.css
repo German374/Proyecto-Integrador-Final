@@ -1,0 +1,56 @@
+/* GENERAL */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: #f0f4f7;
+}
+
+/* TITULOS */
+.title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1542b5;
+}
+
+/* BOTONES */
+.btn-action {
+    -fx-background-color: #1542b5;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 20 8 20;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.btn-action:hover {
+    -fx-background-color: #1b7ee0;
+}
+
+.btn-clear {
+    -fx-background-color: #b51515;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 20 8 20;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.btn-clear:hover {
+    -fx-background-color: #e01b1b;
+}
+
+/* TEXTFIELDS Y TEXTAREA */
+.text-field, .text-area, .combo-box {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #1542b5;
+    -fx-border-width: 1;
+    -fx-padding: 5;
+}
+
+.text-area {
+    -fx-font-size: 14px;
+}
+
+
+
+
