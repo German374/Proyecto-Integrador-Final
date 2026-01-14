@@ -1,14 +1,14 @@
 package ec.edu.espoch.analisispendiente.controller;
 
-import ec.edu.espoch.analisispendiente.App;
+import ec.edu.espoch.analisispendiente.model.Funcion;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.geometry.Insets;
+import javafx.fxml.FXMLLoader;
 
 public class PrimaryController {
 
@@ -27,10 +27,7 @@ public class PrimaryController {
 
     @FXML
     public void initialize() {
-        cbTipoFuncion.setItems(FXCollections.observableArrayList(
-                "Función Lineal",
-                "Función Cuadrática"
-        ));
+        cbTipoFuncion.setItems(FXCollections.observableArrayList("Función Lineal","Función Cuadrática"));
 
         txtA.setDisable(true);
         txtB.setDisable(true);
@@ -54,6 +51,7 @@ public class PrimaryController {
             b = Double.parseDouble(txtB.getText());
             c = txtC.isDisabled() ? 0 : Double.parseDouble(txtC.getText());
 
+            // parte de analisis
             String analisis;
             String tipoRuta = "";
             String inclinacion = "";
@@ -92,30 +90,33 @@ public class PrimaryController {
             }
 
             txtAnalisis.setText(analisis);
+            
 
         } catch (NumberFormatException e) {
             txtAnalisis.setText("Error: ingrese valores numéricos válidos.");
         }
     }
 
-    // ===== CORRECCIÓN: verCalculo ahora pasa datos al SecondaryController =====
     @FXML
     private void verCalculo() throws Exception {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("/ec/edu/espoch/analisispendiente/view/Secondary.fxml"));
+        // crear objeto dentro del modelo
+        Funcion funcion = Funcion.crearFuncion(tipoFuncion, a, b, c);
+
+        // Pasar objeto al controller secundario
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ec/edu/espoch/analisispendiente/view/Secondary.fxml"));
         Scene scene = new Scene(loader.load());
-
-        // Obtener el controller de Secondary
         SecondaryController controller = loader.getController();
-        controller.recibirDatos(tipoFuncion, a, b, c);
+        controller.recibirDatos(funcion, tipoFuncion);
 
-        // Mostrar la escena
-        App.primaryStage.setScene(scene);
-        App.primaryStage.show();
+        Stage stage = (Stage) txtAnalisis.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+        
     }
-    // =======================================================================
 
     @FXML
     private void verCalculoDetallado() {
+        //parte del calculo
         Stage stage = new Stage();
         stage.setTitle("Cálculo Detallado");
 
@@ -152,7 +153,7 @@ public class PrimaryController {
                 new Label("Valor de a: " + a),
                 new Label("Valor de b: " + b),
                 new Label("Valor de c: " + c),
-                new Label("Pendiente m: " + m),
+                new Label("Pendiente m: " + String.format("%.2f", m)), // REDONDEO
                 new Label("Tipo de ruta: " + tipoRuta),
                 new Label("Inclinación: " + inclinacion),
                 new Label("Esfuerzo requerido: " + esfuerzo)
@@ -161,6 +162,7 @@ public class PrimaryController {
         Scene scene = new Scene(root, 350, 250);
         stage.setScene(scene);
         stage.show();
+        
     }
 
     @FXML
@@ -183,6 +185,9 @@ public class PrimaryController {
         });
     }
 }
+
+
+
 
 
 

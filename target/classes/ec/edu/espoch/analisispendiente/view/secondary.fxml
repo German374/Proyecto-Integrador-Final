@@ -4,8 +4,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espoch.analisispendiente.controller.SecondaryController"
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="ec.edu.espoch.analisispendiente.controller.SecondaryController"
             prefWidth="600" prefHeight="400">
+
     <children>
         <VBox spacing="10" alignment="TOP_CENTER" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
             
@@ -15,12 +16,13 @@
             
             <Label text="Cálculo Detallado de la Función" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
             
-            <TextArea fx:id="txtCalculo" prefHeight="250" wrapText="true"/>
+            <TextArea fx:id="txtCalculo" prefHeight="250" wrapText="true" editable="false"/>
             
-            <Button text="Volver" onAction="#volverAPrimary" prefWidth="150"/>
+            <Button text="Volver" onAction="#volverAPrimary" styleClass="btn-action" prefWidth="150"/>
         </VBox>
     </children>
 </AnchorPane>
+
 
 
 

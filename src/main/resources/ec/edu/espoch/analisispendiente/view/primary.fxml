@@ -13,7 +13,7 @@
                 <Insets top="20" right="20" bottom="20" left="20"/>
             </padding>
             
-            <Label text="Análisis de Fuciones" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+            <Label text="Análisis de Funciones" styleClass="title-label"/>
             
             <ComboBox fx:id="cbTipoFuncion" promptText="Seleccione tipo de función" prefWidth="300"/>
             
@@ -21,14 +21,15 @@
             <TextField fx:id="txtB" promptText="Ingrese b" prefWidth="300"/>
             <TextField fx:id="txtC" promptText="Ingrese c" prefWidth="300"/>
             
-            <Button text="Calcular" onAction="#analizarFuncion" prefWidth="150"/>
-            <Button text="Ver Cálculo Detallado" onAction="#verCalculo" prefWidth="200"/>
-            <Button text="Limpiar" onAction="#limpiar" prefWidth="150"/>
+            <Button text="Calcular" onAction="#analizarFuncion" styleClass="btn-action" prefWidth="150"/>
+            <Button text="Ver Cálculo Detallado" onAction="#verCalculo" styleClass="btn-action" prefWidth="200"/>
+            <Button text="Limpiar" onAction="#limpiar" styleClass="btn-clear" prefWidth="150"/>
             
             <TextArea fx:id="txtAnalisis" wrapText="true" prefHeight="150" prefWidth="500"/>
         </VBox>
     </children>
 </AnchorPane>
+
 
 
 

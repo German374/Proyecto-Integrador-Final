@@ -8,15 +8,13 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     public static Stage primaryStage;
-    public static String tipoFuncion;
-    public static double a, b, c;
 
     @Override
     public void start(Stage stage) throws Exception {
         primaryStage = stage;
 
-        // Se corrigió la ruta de acuerdo a tu carpeta: resources/ec/edu/espoch/analisispendiente/view/
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/ec/edu/espoch/analisispendiente/view/Primary.fxml"));
+
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Análisis de Pendiente");
         stage.setScene(scene);
@@ -24,8 +22,8 @@ public class App extends Application {
     }
 
     public static void cambiarVista(String fxml) throws Exception {
-        // Se corrigió la ruta para que encuentre los FXML en la carpeta view
         FXMLLoader loader = new FXMLLoader(App.class.getResource("/ec/edu/espoch/analisispendiente/view/" + fxml + ".fxml"));
+
         Scene scene = new Scene(loader.load());
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -35,6 +33,7 @@ public class App extends Application {
         launch();
     }
 }
+
 
 
 
