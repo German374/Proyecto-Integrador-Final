@@ -7,7 +7,7 @@ public class CalculadoraPendiente {
     }
 
     public static double derivadaCuadratica(double a, double b, double c) {
-        return 2 * a + b; // tu fórmula original
+        return 2 * a + b; // formula original 
     }
 }
 
